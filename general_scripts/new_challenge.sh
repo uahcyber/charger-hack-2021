@@ -20,7 +20,7 @@ fi
 read -p "Description: " DESC
 read -p "Needs Docker? [y/n]: " NEEDS_DOCKER
 
-mkdir -p ../challenges/$CATEGORY/$NAME
+mkdir -p ../challenges/$CATEGORY/$NAME/solution
 
 echo -n $DESC >> ../challenges/$CATEGORY/$NAME/description.txt
 
@@ -63,9 +63,9 @@ EOT
     done
     cat <<EOT >> ../challenges/$CATEGORY/$NAME/test.sh
 #!/bin/bash
-docker build -t $CATEGORY-$NAME .
-echo "hosting $CATEGORY-$NAME on: localhost $FPORT"
-docker run -it --rm -p $FPORT:$PORT --name test-$CATEGORY-$NAME $CATEGORY-$NAME
+docker build -t ${CATEGORY,,}-${NAME,,} .
+echo "hosting test-${CATEGORY,,}-${NAME,,} on: localhost $FPORT"
+docker run -it --rm -p $FPORT:$PORT --name test-${CATEGORY,,}-${NAME,,} $CATEGORY-$NAME
 EOT
     echo "Place any final binaries/flag files in $CATEGORY/$NAME/to_copy and modify $CATEGORY/$NAME/start.sh as needed."
     echo "To test the container, run $CATEGORY/$NAME/test.sh as root."
