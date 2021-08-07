@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 # generates a new challenge subdirectory with default file structure
 # for use in the UAH Cybersecurity Club 2021 Week of Welcome CTF 
@@ -52,6 +52,7 @@ cd /home/ctfuser
 
 # modify me to run the challenge
 EOT
+    chmod +x ../challenges/$CATEGORY/$NAME/start.sh
     readarray -t FOUND_PORTS < <(grep -rnw "docker run -it --rm -p" ../challenges/ | cut -d':' -f3 | awk -F'-it --rm -p ' '{ print $NF }')
     USED_PORTS+=("${FOUND_PORTS[@]}")    
     while true; do
@@ -61,11 +62,14 @@ EOT
             break
         fi
     done
-    cat <<EOT >> ../challenges/$CATEGORY/$NAME/test.sh
-#!/bin/bash
-docker build -t ${CATEGORY,,}-${NAME,,} .
-echo "hosting test-${CATEGORY,,}-${NAME,,} on: localhost $FPORT"
-docker run -it --rm -p $FPORT:$PORT --name test-${CATEGORY,,}-${NAME,,} $CATEGORY-$NAME
+    cat <<EOT >> ../docker-compose.yaml
+  ${CATEGORY,,}-${NAME,,}:
+    restart: always
+    build:
+      context: "./challenges/${CATEGORY,,}/${NAME,,}"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "$FPORT:$PORT"
 EOT
     echo "Place any final binaries/flag files in $CATEGORY/$NAME/to_copy and modify $CATEGORY/$NAME/start.sh as needed."
     echo "To test the container, run $CATEGORY/$NAME/test.sh as root."

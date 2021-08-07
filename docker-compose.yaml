@@ -1,0 +1,10 @@
+version: '3.9'
+
+services:
+  get_the_flaaaaaaaaaa:
+    restart: always
+    build:
+      context: "./challenges/pwn/get_the_flaAAAAAAAAA"
+      dockerfile: "./Dockerfile"
+    ports: 
+      - "50371:1337"

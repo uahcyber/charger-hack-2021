@@ -11,3 +11,9 @@ To create a new challenge, run:
 ```bash
 ./general_scripts/new_challenge.sh
 ```
+
+To start all challenges, run:
+
+```bash
+sudo docker-compose up
+```
