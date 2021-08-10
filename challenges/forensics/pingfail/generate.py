@@ -2,7 +2,7 @@
 from scapy.all import *
 
 flag = 'UAH{it5_imp0ssibl3_T0_g3t_A_repLy!}'
-pcap = "dist/result.pcap"
+pcap = "dist/ping.pcap"
 
 def do_stego(url):
     print(f"there should be {len(flag)+1} packets")
