@@ -1,0 +1,1 @@
+take block of data in .data section of binary, then subtract 18 from each character and XOR it with len(password)-current_position

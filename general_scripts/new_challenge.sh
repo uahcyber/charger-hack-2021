@@ -21,14 +21,14 @@ read -p "Description: " DESC
 read -p "Needs Docker? [y/n]: " NEEDS_DOCKER
 
 mkdir -p ../challenges/$CATEGORY/$NAME/solution
+touch ./challenges/$CATEGORY/$NAME/flag.txt
+mkdir -p ../challenges/$CATEGORY/$NAME/dist
 
 echo -n $DESC >> ../challenges/$CATEGORY/$NAME/description.txt
 
 if [ ${NEEDS_DOCKER^^} == "Y" ]; then
     read -p "What port will need to be exposed from the container?: " PORT
     mkdir -p ../challenges/$CATEGORY/$NAME/to_copy
-    mkdir -p ../challenges/$CATEGORY/$NAME/dist
-    touch ./challenges/$CATEGORY/$NAME/flag.txt
     cat <<EOT >> ../challenges/$CATEGORY/$NAME/Dockerfile
 FROM ubuntu:21.10
 LABEL maintainer="uahcybersec@uah.edu"
