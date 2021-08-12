@@ -13,7 +13,7 @@ def ping():
     data = request.json['data']
     output = getoutput("ping -c 1 " + data).replace("\n","<br>")
     output = f'<code>{output}</code><br><br><b>'
-    if "1 packets received" in output:
+    if "1 received" in output:
         output += "Server appears to be up!</b>"
     else:
         output += "Server is DOWN!!</b>"

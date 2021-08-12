@@ -10,11 +10,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y install gdb
 
 ADD --chown=ctfuser:ctfuser src /home/ctfuser/
-RUN chmod -R 555 /home/ctfuser
 COPY chall.xinetd /etc/xinetd.d/chall
 RUN touch /var/log/xinetdlog
 
 RUN su ctfuser -c 'rm /home/ctfuser/program && make -C /home/ctfuser/ && rm /home/ctfuser/main.c'
+RUN chmod -R 555 /home/ctfuser
 
 EXPOSE 1337
 
