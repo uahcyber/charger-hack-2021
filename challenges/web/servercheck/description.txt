@@ -1,0 +1,1 @@
+Blue recently created a web service that allows for checking whether a server is up or not, feel free to try it out!

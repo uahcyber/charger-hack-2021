@@ -10,7 +10,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y install gdb
 
 ADD --chown=ctfuser:ctfuser src /home/ctfuser/
-RUN chmod -R 777 /home/ctfuser
+RUN chmod -R 555 /home/ctfuser
 COPY chall.xinetd /etc/xinetd.d/chall
 RUN touch /var/log/xinetdlog
 

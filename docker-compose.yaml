@@ -8,3 +8,10 @@ services:
       dockerfile: "./Dockerfile"
     ports: 
       - "50371:1337"
+  web-servercheck:
+    restart: always
+    build:
+      context: "./challenges/web/servercheck"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "25870:8080"
