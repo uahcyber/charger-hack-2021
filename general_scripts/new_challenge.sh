@@ -21,7 +21,7 @@ read -p "Description: " DESC
 read -p "Needs Docker? [y/n]: " NEEDS_DOCKER
 
 mkdir -p ../challenges/$CATEGORY/$NAME/solution
-touch ./challenges/$CATEGORY/$NAME/flag.txt
+touch ../challenges/$CATEGORY/$NAME/flag.txt
 mkdir -p ../challenges/$CATEGORY/$NAME/dist
 
 echo -n $DESC >> ../challenges/$CATEGORY/$NAME/description.txt
