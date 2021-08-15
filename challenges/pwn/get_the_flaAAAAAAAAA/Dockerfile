@@ -1,20 +1,19 @@
-FROM ubuntu:21.10
+FROM ubuntu:18.04
 LABEL maintainer="uahcybersec@uah.edu"
 LABEL version="0.1"
 LABEL description="pwn challenge 'get_the_flaAAAAAAAAA' for the UAH Cybersecurity Club's 2021 Week of Welcome CTF."
 
 RUN adduser --home /home/ctfuser --shell /bin/bash --disabled-password --gecos "" -q ctfuser
 RUN apt-get update
-RUN apt-get -y install xinetd build-essential
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get -y install gdb
+RUN apt-get -y install xinetd
 
-ADD --chown=ctfuser:ctfuser src /home/ctfuser/
+ADD --chown=root:ctfuser src /home/ctfuser/
 COPY chall.xinetd /etc/xinetd.d/chall
 RUN touch /var/log/xinetdlog
 
-RUN su ctfuser -c 'rm /home/ctfuser/program && make -C /home/ctfuser/ && rm /home/ctfuser/main.c'
-RUN chmod -R 555 /home/ctfuser
+RUN su ctfuser -c 'rm /home/ctfuser/main.c /home/ctfuser/Makefile'
+RUN chmod -R 550 /home/ctfuser
 
 EXPOSE 1337
 

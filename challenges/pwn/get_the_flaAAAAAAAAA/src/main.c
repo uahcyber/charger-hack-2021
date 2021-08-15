@@ -4,12 +4,10 @@
 void setup() {
     setvbuf(stdin, 0, 2, 0);
     setvbuf(stdout, 0, 2, 0);
-    setvbuf(stderr, 0, 2, 0);
 }
 
 void hax() {
-    printf("You win!\n");
-    FILE* fp = fopen("./flag.txt","r");
+    FILE* fp = fopen("flag.txt","r");
     if(!fp) {
         printf("Error opening flag file!\n");
         return;
@@ -17,7 +15,7 @@ void hax() {
     fseek(fp,0,SEEK_END);
     long len = ftell(fp);
     fseek(fp,0,SEEK_SET);
-    char* buf = (char*)malloc(len-1);
+    char* buf = (char*)malloc(len+1);
     if(!buf) {
         printf("Error allocating 0x%lx bytes for reading\n",len);
         fclose(fp);
@@ -25,7 +23,8 @@ void hax() {
     }
     fread(buf,len,1,fp);
     fclose(fp);
-    printf("flag: %s\n",buf);
+    puts(buf);
+    fflush(stdout);
     free(buf);
 }
 
@@ -38,4 +37,5 @@ void vuln() {
 int main(int argc, char* argv[]) {
     setup();
     vuln();
+    return 0;
 }

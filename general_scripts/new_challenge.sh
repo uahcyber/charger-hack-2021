@@ -35,12 +35,13 @@ LABEL maintainer="uahcybersec@uah.edu"
 LABEL version="0.1"
 LABEL description="$CATEGORY challenge '$NAME' for the UAH Cybersecurity Club's 2021 Week of Welcome CTF."
 
-RUN adduser --home /home/ctfuser --shell /bin/sh --disabled-password --gecos "" -q ctfuser
+RUN adduser --home /home/ctfuser --shell /bin/bash --disabled-password --gecos "" -q ctfuser
 
-ADD to_copy /home/ctfuser/
+ADD --chown=root:ctfuser to_copy /home/ctfuser/
+RUN chmod -R 550 /home/ctfuser
 COPY start.sh /start.sh
 
-CMD ["./start.sh"]
+CMD ["su","ctfuser","./start.sh"]
 
 EXPOSE $PORT
 EOT
