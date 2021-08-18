@@ -1,0 +1,5 @@
+For every [] loop, a single minus and single plus has been removed. In all but one of the loops,
+the minus was removed before the first right shift (>) and the plus was removed between the two shifts (>+<).
+
+If someone knows brainfuck, they should be able to figure out that the first letter is a U for UAH, 
+then they can try the next one as an A, eventually get the pattern, and solve the challenge. 

@@ -1,0 +1,1 @@
+Blue was playing around with his favorite esoteric programming language, but his hard drive was corrupted! He managed to pull off some pieces of data, but a lot of it was incomplete. Help Blue figure out what the original code was!
