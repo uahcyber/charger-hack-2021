@@ -22,3 +22,10 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "36416:1337"
+  misc-calc:
+    restart: always
+    build:
+      context: "./challenges/misc/calc"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "15867:1337"
