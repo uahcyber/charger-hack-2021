@@ -15,3 +15,10 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "25870:8080"
+  misc-catz:
+    restart: always
+    build:
+      context: "./challenges/misc/catz"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "36416:1337"
