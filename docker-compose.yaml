@@ -43,3 +43,10 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "15341:5000"
+  web-hacker-name-generator:
+    restart: always
+    build:
+      context: "./challenges/web/hacker-name-generator"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "34554:8000"
