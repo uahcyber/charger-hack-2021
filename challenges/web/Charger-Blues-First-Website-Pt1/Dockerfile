@@ -8,7 +8,7 @@ RUN adduser --home /home/ctfuser --shell /bin/bash --disabled-password --gecos "
 RUN apt-get update
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y install python3-pip
-RUN pip3 install Flask flask_simplelogin
+RUN pip3 install Flask flask_simplelogin gunicorn
 
 ADD --chown=root:ctfuser to_copy /home/ctfuser/
 RUN chmod -R 550 /home/ctfuser

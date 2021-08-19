@@ -8,7 +8,7 @@ RUN adduser --home /home/ctfuser --shell /bin/bash --disabled-password --gecos "
 RUN apt-get update
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y install python3-pip firefox
-RUN pip3 install Flask selenium webdrivermanager
+RUN pip3 install Flask selenium webdrivermanager gunicorn
 RUN webdrivermanager firefox --linkpath /usr/local/bin
 
 ADD --chown=root:ctfuser to_copy /home/ctfuser/

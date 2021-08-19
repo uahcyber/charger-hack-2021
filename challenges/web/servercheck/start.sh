@@ -5,4 +5,4 @@ cd /home/ctfuser
 # END DONT TOUCH
 
 # modify me to run the challenge
-python3 server.py
+gunicorn --bind 0.0.0.0:8080 server:app

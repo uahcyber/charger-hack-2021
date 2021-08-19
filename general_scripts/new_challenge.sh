@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/bin/bash
 
 # generates a new challenge subdirectory with default file structure
 # for use in the UAH Cybersecurity Club 2021 Week of Welcome CTF 
