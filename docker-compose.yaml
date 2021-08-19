@@ -29,3 +29,10 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "15867:1337"
+  web-animal-farm:
+    restart: always
+    build:
+      context: "./challenges/web/animal-farm"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "63122:8000"
