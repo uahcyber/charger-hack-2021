@@ -36,3 +36,10 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "63122:8000"
+  helpers-web-bot:
+    restart: always
+    build:
+      context: "./helpers/web-bot"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "15341:5000"

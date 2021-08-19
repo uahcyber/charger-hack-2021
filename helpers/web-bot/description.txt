@@ -1,0 +1,2 @@
+NOT A CHALLENGE
+a web bot to visit malicious links, usually with a flag cookie embedded
