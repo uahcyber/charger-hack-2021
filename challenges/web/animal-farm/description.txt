@@ -1,0 +1,1 @@
+Blue started learning this super secure programming language called PHP, and has created The-Animal-Randomizer-1337. He's asked you to traverse through his code to see if you can find any vulnerabilities.. good luck!
