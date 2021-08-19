@@ -1,0 +1,5 @@
+User-agent: \*
+
+Allow: /
+Disallow: /admin_login_f0idl3vl4w
+UAH{d0m0_4r1g470_MR_R0b070}

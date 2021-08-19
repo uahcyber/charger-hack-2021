@@ -36,3 +36,10 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "15341:5000"
+  web-charger-blues-first-website-pt1:
+    restart: always
+    build:
+      context: "./challenges/web/charger-blues-first-website-pt1"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "46081:5000"
