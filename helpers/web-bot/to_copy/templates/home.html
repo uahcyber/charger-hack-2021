@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            body {background-color: #343a40;}
+        </style>
+        <title>Charger Hack Admin Bot</title>
+    </head>
+    <body>
+        <div class="p-3 mb-2 text-white">
+            <div class="pt-4 d-flex justify-content-center">
+                <center><h1>Charger Hack 2021 Admin Bot</h1></center>
+            </div>
+            <div class="container pt-3">
+                <h2>Have an admin visit a link:</h2>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="challSelect" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Select a challenge
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">{% for chall in challenges %}
+                      <a class="dropdown-item" href="./bot/{{ chall.name }}">{{ chall.name }} ({{ chall.url }})</a>{% endfor %}
+                    </div>
+                  </div>
+            </div>
+        </div>
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
