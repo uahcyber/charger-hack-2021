@@ -31,9 +31,12 @@ def visit(name):
     chall.do(data) # maybe do urllib.parse.quote() here, not sure
     return "sent request"
 
-if __name__ == "__main__":
+@app.before_first_request
+def execute_me():
     challs = [
         XSSChall("test",f"{main_url}:38256"),
     ]
     CL.extend(challs)
+
+if __name__ == "__main__":
     app.run(host="0.0.0.0")
