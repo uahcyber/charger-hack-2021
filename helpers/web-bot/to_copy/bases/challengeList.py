@@ -35,6 +35,10 @@ class ChallengeList:
     def append(self,chall):
         self.challs.append(chall)
     
+    def extend(self,challs):
+        for c in challs:
+            self.challs.append(c)
+    
     def getFromURL(self,url):
         for c in self.challs:
             if c.url == url:
