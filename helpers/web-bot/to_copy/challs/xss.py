@@ -8,4 +8,4 @@ class XSSChall(Challenge):
         super().__init__(*args, **kwargs)
 
     def do(self, data):
-        self.open_path_with_cookie(data,{"flag":flag})
+        self.open_path_with_cookie(data,{"flag": self.flag})
