@@ -10,6 +10,10 @@ echo "Creating new CTF challenge"
 read -p "Category: " CATEGORY
 read -p "Name: " NAME
 
+# lowercase
+$NAME=${NAME,,}
+$CATEGORY=${CATEGORY,,}
+
 cd "$(dirname "$0")" # get into script directory to reference ../challenges
 
 if [ -d "../challenges/$CATEGORY/$NAME" ]; then
