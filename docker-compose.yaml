@@ -64,3 +64,10 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "38256:5000"
+  pwn-greetings:
+    restart: always
+    build:
+      context: "./challenges/pwn/greetings"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "19601:1337"
