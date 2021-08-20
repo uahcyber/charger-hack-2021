@@ -5,9 +5,9 @@ from challs.xss import XSSChall
 
 app = Flask(__name__)
 
-#main_url = "http://challs.ctf.uahcyber.club"
+main_url = "http://challs.ctf.uahcyber.club"
 
-main_url = "http://127.0.0.1"
+#main_url = "http://127.0.0.1"
 
 CL = None
 
@@ -33,7 +33,7 @@ def visit(name):
 
 if __name__ == "__main__":
     challs = [
-        XSSChall("test",f"{main_url}:5000"),
+        XSSChall("test",f"{main_url}:38256"),
     ]
     CL = ChallengeList(challs)
     app.run(host="0.0.0.0")

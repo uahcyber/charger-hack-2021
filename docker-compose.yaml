@@ -57,3 +57,10 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "34554:8000"
+  web-blues-billboard:
+    restart: always
+    build:
+      context: "./challenges/web/blues-billboard"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "38256:5000"

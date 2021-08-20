@@ -1,0 +1,1 @@
+Blue made a billboard system to display his favorite images! Surely the attacker didn't take advantage of this.
