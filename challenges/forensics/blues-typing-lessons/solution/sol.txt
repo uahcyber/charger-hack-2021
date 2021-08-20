@@ -1,0 +1,7 @@
+Analyze USB keyboard traffic
+
+The "Leftover Capture Data" field contains information about the keystrokes, such as the key pressed as well as any modifiers.
+
+Few different solutions. Most rewarding is to create the script yourself but you can also use tools on github such as ctf-usb-keyboard-parser.
+
+https://github.com/TeamRocketIst/ctf-usb-keyboard-parser
