@@ -1,0 +1,3 @@
+Corrupted file header challenge.
+
+Replace the XXXXXX bytes with the correct PNG magic bytes: 89 50 4E 47 0D 0A
