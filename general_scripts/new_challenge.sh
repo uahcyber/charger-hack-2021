@@ -11,8 +11,8 @@ read -p "Category: " CATEGORY
 read -p "Name: " NAME
 
 # lowercase
-$NAME=${NAME,,}
-$CATEGORY=${CATEGORY,,}
+NAME=${NAME,,}
+CATEGORY=${CATEGORY,,}
 
 cd "$(dirname "$0")" # get into script directory to reference ../challenges
 
