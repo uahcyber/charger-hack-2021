@@ -71,3 +71,10 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "19601:1337"
+  pwn-insert:
+    restart: always
+    build:
+      context: "./challenges/pwn/insert"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "17424:1337"
