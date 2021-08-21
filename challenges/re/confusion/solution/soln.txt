@@ -1,0 +1,1 @@
+disassemble binary, find XOR values, XOR with 0x25, get the flag 
