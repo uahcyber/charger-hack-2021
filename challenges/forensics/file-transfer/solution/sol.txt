@@ -1,0 +1,3 @@
+Simple FTP traffic analysis
+
+Follow TCP stream of file, convert to raw bytes, and save as PNG
