@@ -1,0 +1,1 @@
+Blue must give a presentation on his paper, but realized something was wrong at the last minute. He left the .tex file at home, so he needs you to recreate his paper in LaTeX!

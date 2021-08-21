@@ -1,0 +1,196 @@
+
+% pro tip: don't use $ or $$
+
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsfonts, amsmath, amssymb, amsthm}
+
+\usepackage{graphicx}
+
+\usepackage[backend=biber, style=alphabetic, sorting=nty]{biblatex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\emergencystretch=1em
+
+\graphicspath{{./}}
+
+\addbibresource{source.bib}
+
+\title{Local Inversion Theorem}
+\author{Charger Blue}
+\date{\includegraphics[scale=0.2]{charger_blue.jpg}} % scale is 0.2
+
+\begin{document}
+
+\maketitle
+\begin{abstract}
+    The Local Inversion Theorem gives sufficient conditions for a function to be a local diffeomorphism of a point in its domain.  The conditions for the theorem are that the function is of class \(C^1\) and its derivative at the point is an isomorphism.
+\end{abstract}
+
+\section{Introduction}
+
+The Local Inversion Theorem is stated as follows:
+
+\textbf{Theorem (}\textit{Local Inversion}\textbf{):} Let \(E,F\) be Banach Spaces and \(U,V\) be non-empty open subsets of \(E\) and \(F\) respectfully.  If \(f:U\to V\) is of class \(C^1\) and if \(a\in U\) such that \(df(a)\) is an isomorphism, then there exists an open neighborhood, \(U_a\), of \(a\) in \(U\) and an open neighborhood, \(V_b\), of \(b=f(a)\) in \(V\) such that \(f|_{U_a}\) is a diffeomorphism from \(U_a\) onto \(V_b\).
+
+\section{Preliminaries}
+
+The proof of the Local Inversion Theorem requires some machinery, mainly a corollary to the Open Mapping Theorem and the Banach-Picard Theorem.  
+
+\textbf{Theorem (}\textit{Open Mapping}\textbf{):} Let \(E,F\) be Banach Spaces.  If \(L:E\to F\) is a surjective continuous linear mapping, then \(L\) is an open mapping. So if \(U\subseteq E\) is open, then \(L(U)\) is open.\\
+\textbf{Note:} A proof is provided in Chapter 8 Appendix 1 of \cite{coleman}.
+
+\textbf{Corollary:} Let \(E,F\) be Banach Spaces.  If \(L:E\to F\) is a bijective continuous linear mapping, then the inverse of \(L\) is continuous.\\
+\textbf{Note:} A proof is provided in Chapter 8 Appendix 1 of \cite{coleman}.
+
+\textbf{Theorem (}\textit{Banach-Picard}\textbf{):} Let \(C\) be a non-empty closed subset of a Banach Space \(E\).  If \(h:C\to C\) is a strict contraction, then there exists a unique \(x\in C\) such that \(h(x)=x\).
+
+\section{Proof}
+
+Before giving the proof, a general outline goes as follows:
+\begin{enumerate}
+    \item Show \((df(a))^{-1}\) is continuous.
+    \item Show \(f\) is invertible in a neighborhood of \(a\).
+    \item Show \(f^{-1}\) is \(C^1\).
+    \item Show \(f\) is a diffeomorphism when restricted to the neighborhood of \(a\).
+\end{enumerate}
+
+Let \(E,F\) be Banach Spaces.  Let \(U\subseteq E\) and \(V\subseteq F\) be non-empty open subsets.  Finally, let \(a\in U\).
+
+Suppose \(f:U\to V\) is of class \(C^1\) and \(df(a)\) is an isomorphism.
+
+\textbf{Step 1}
+
+As \(f\) is of class \(C^1\), \(df(a)\) is continuous.  Also, because \(df(a)\)) is an isomorphism, \(df(a)\) is bijective.  This means that \(df(a)\) is a bijective continuous linear mapping.  Therefore by the corollary to the Open Mapping Theorem, \((df(a))^{-1}\) is continuous.
+
+\textbf{Step 2}
+
+As stated before, \(df(a)\) is continuous.  This means \(\exists r>0\) such that \(\forall x\in\bar{B}_E(a;r)\),
+\[\Vert df(a)-df(x)\Vert_{\mathcal{L}(E,F)} < \frac{1}{2\Vert(df(a))^{-1}\Vert}_{\mathcal{L}(F,E)}\]
+
+Let \(y\in B_F(f(a);\frac{r}{2\Vert(df(a))^{-1}\Vert_{\mathcal{L}(F,E)}})\).  
+
+Define \(\phi_y:\bar{B}_E(a;r)\to E\) by
+\[\phi_y(x)=x+(df(a))^{-1}(y-f(x))\]
+The derivative of this mapping is
+\begin{align*}
+    d\phi_y(x)&=id_E-(df(a))^{-1}(df(x))\\
+    &=(df(a))^{-1}(df(a)-df(x))
+\end{align*}
+So, for any \(x\in\bar{B}_E(a;r)\),
+\begin{align*}
+    \Vert d\phi_y(x)\Vert_{\mathcal{L}(E,E)}&=\Vert(df(a))^{-1}(df(a)-df(x))\Vert_{\mathcal{L}(E,E)}\\
+    &\leq\Vert(df(a))^{-1}\Vert_{\mathcal{L}(F,E)}\Vert(df(a)-df(x))\Vert_{\mathcal{L}(E,F)}\\
+    &<\Vert(df(a))^{-1}\Vert_{\mathcal{L}(F,E)}\frac{1}{2\Vert(df(a))^{-1}\Vert_{\mathcal{L}(F,E)}}\\
+    &=\frac{1}{2}
+\end{align*}
+Then, by using the Mean Value Inequality, for any \(v,w\in\bar{B}_E(a;r)\)
+\[\Vert\phi_y(v)-\phi_y(w)\Vert_E\leq\frac{1}{2}\Vert v-w\Vert_E\]
+This means \(\phi_y\) is a strict contraction.  The codomain of \(\phi_y\) can also be redefined to \(\bar{B}_E(a;r)\) because
+\begin{align*}
+    \Vert\phi_y(x)-a\Vert_E&\leq\Vert\phi_y(x)-\phi_y(a)\Vert_E +\Vert\phi_y(a)-a\Vert_E\\
+    &\leq\frac{1}{2}\Vert x-a\Vert_E +\Vert(df(a))^{-1}\Vert_{\mathcal{L}(F,E)}\Vert y-f(a)\Vert_F\\
+    &<\frac{r}{2}+\Vert(df(a))^{-1}\Vert_{\mathcal{L}(F,E)}\frac{r}{2\Vert(df(a))^{-1}\Vert_{\mathcal{L}(F,E)}}\\
+    &=r
+\end{align*}
+This also means \(\phi_y(\bar{B}_E(a;r))\subseteq B_E(a;r)\).
+
+Using the Banach-Picard Theorem, there exists a unique \(x\in\bar{B}_E(a;r)\) such that \(\phi_y(x)=x\).  This means,
+\begin{align*}
+    &\phi_y(x)=x\\
+    &\Rightarrow x+(df(a))^{-1}(y-f(x))=x\\
+    &\Rightarrow (df(a))^{-1}(y-f(x))=0\\
+    &\Rightarrow y=f(x)
+\end{align*}
+A note to make is that \(x\in B_E(a;r)\) because \(\phi_y(\bar{B}_E(a;r))\subseteq B_E(a;r)\).
+
+Let \(U_a=f^{-1}(B_F(f(a);\frac{r}{2\Vert(df(a))^{-1}\Vert_{\mathcal{L}(F,E)}}))\cap B_E(a;r)\).  \(U_a\) is an open neighborhood of \(a\).  Given the above, \(f\) is invertible on \(U_a\).  Also, let \(V_b=B_F(f(a);\frac{r}{2\Vert(df(a))^{-1}\Vert_{\mathcal{L}(F,E)}})\).
+
+So, \(f|_{U_a}\) is a continuous bijection from \(U_a\) onto \(V_b\).
+
+\textbf{Step 3}
+
+A reasonable guess for \(df^{-1}(y)\) for some \(y\in V_b\) would be \((df(f^{-1}(y)))^{-1}\).
+
+To show this, let \(y\in V_b\) and \(k\in F\).  Then, there will exist a unique \(x\in U_a\) such that \(f(x)=y\) and \(h\in E\) such that \(f(x+h)=f(x)+k\).
+
+Looking at the definition of the derivative, if
+\[\lim_{k\to 0}\frac{\Vert f^{-1}(y+k)-f^{-1}(y)-(df(f^{-1}(y)))^{-1}k\Vert_E}{\Vert k\Vert_F}=0\]
+Then, \(f^{-1}\) is derivable at \(y\).
+
+One property of the \(\phi_y\) defined above, is,
+\begin{align*}
+    &\Vert\phi_y(x+h)-\phi_y(x)\Vert_E\leq\frac{1}{2}\Vert x+h-x\Vert_E\\
+    &\Rightarrow\Vert x+h+(df(a))^{-1}(y-f(x+h))-x-(df(a))^{-1}(y-f(x))\Vert_E\leq\frac{1}{2}\Vert h\Vert_E\\
+    &\Rightarrow\Vert h-(df(a))^{-1}(f(x+h)-f(x))\Vert_E\leq\frac{1}{2}\Vert h\Vert_E\\
+    &\Rightarrow\Vert h\Vert_E-\Vert(df(a))^{-1}(f(x+h)-f(x))\Vert_E\leq\frac{1}{2}\Vert h\Vert_E\\
+    &\Rightarrow\Vert h\Vert_E\leq 2\Vert(df(a))^{-1}\Vert_{\mathcal{L}(F,E)}\Vert f(x+h)-f(x)\Vert_F\\
+    &\Rightarrow\Vert h\Vert_E\leq 2\Vert(df(a))^{-1}\Vert_{\mathcal{L}(F,E)}\Vert k\Vert_F
+\end{align*}
+So as \(k\to 0\), \(h\to 0\).
+
+This means,
+\begin{align*}
+    &\frac{\Vert f^{-1}(y+k)-f^{-1}(y)-(df(f^{-1}(y)))^{-1}k\Vert_E}{\Vert k\Vert_F}\\
+    &=\frac{\Vert f^{-1}(f(x)+f(x+h)-f(x))-f^{-1}(f(x))-(df(x))^{-1}k\Vert_E}{\Vert k\Vert_F}\\
+    &=\frac{\Vert x+h-x-(df(x))^{-1}k\Vert_E}{\Vert k\Vert_F}\\
+    &=\frac{\Vert h-(df(x))^{-1}k\Vert_E}{\Vert k\Vert_F}\\
+    &=\frac{\Vert (df(x))^{-1}((df(x))h-f(x+h)+f(x))\Vert_E}{\Vert k\Vert_F}\\
+    &=\frac{\Vert (df(x))^{-1}(f(x+h)-f(x)-df(x)h)\Vert_E}{\Vert k\Vert_F}\\
+    &\leq\Vert (df(x))^{-1}\Vert_{\mathcal{L}(F,E)}\frac{\Vert(f(x+h)-f(x)-df(x)h)\Vert_F}{\Vert k\Vert_F}\\
+    &=\Vert (df(x))^{-1}\Vert_{\mathcal{L}(F,E)}\frac{\Vert h\Vert_E}{\Vert k\Vert_K}\frac{\Vert(f(x+h)-f(x)-df(x)h)\Vert_F}{\Vert h\Vert_E}\\
+    &\leq2\Vert (df(a))^{-1}\Vert_{\mathcal{L}(F,E)}\Vert (df(x))^{-1}\Vert_{\mathcal{L}(F,E)}\frac{\Vert k\Vert_F}{\Vert k\Vert_F}\frac{\Vert (f(x+h)-f(x)-df(x)h)\Vert_F}{\Vert h\Vert_E}\\
+    &=2\Vert (df(a))^{-1}\Vert_{\mathcal{L}(F,E)}\Vert (df(x))^{-1}\Vert_{\mathcal{L}(F,E)}\frac{\Vert(f(x+h)-f(x)-df(x)h)\Vert_F}{\Vert h\Vert_E}
+\end{align*}
+This will go to zero as \(k\to 0\) because
+\[\lim_{h\to 0}\frac{\Vert(f(x+h)-f(x)-df(x)h)\Vert_F}{\Vert h\Vert_E}=0\]
+and as \(k\to 0\), \(h\to 0\).
+
+So,
+\[\lim_{k\to 0}\frac{\Vert f^{-1}(y+k)-f^{-1}(y)-(df(f^{-1}(y)))^{-1}k\Vert_E}{\Vert k\Vert_F}=0\]
+and \(f^{-1}\) is derivable at any \(y\in V_b\) and \(df^{-1}(y)=(df(f^{-1}(y)))^{-1}\).
+
+Finally, because \(f^{-1}\) is continuous, \(df\) is continuous, and \(Q:\mathcal{I}(E,F)\to\mathcal{L}(F,E)\), \(Q(x)=x^{-1}\) is continuous, \(df^{-1}(y)=Q\circ df\circ f^{-1}(y)\) is continuous. In other words \(f^{-1}\) is \(C^1\).
+
+\textbf{Step 4}
+
+\(f|_{U_a}:U_a\to V_b\) is a \(C^1\)-diffeomorphism because \(f|_{U_a}\) is bijective, \(f|_{U_a}\) is \(C^1\), and \((f|_{U_a})^{-1}\) is \(C^1\).
+
+Therefore, there exists an open neighborhood, \(U_a\), of \(a\) in \(U\) and an open neighborhood, \(V_b\), of \(b=f(a)\) in \(V\) such that \(f|_{U_a}\) is a diffeomorphism from \(U_a\) onto \(V_b\).
+
+\section{Example}
+
+Let \(f:\mathbb{R}^2\setminus\{(0,0)\}\to\mathbb{R}^2\) be defined by \(f(r,\theta)=(r\cos\theta,r\sin\theta)\).  This means the Jacobian of \(f\) is
+\[J_f(r,\theta)=\begin{pmatrix}\cos\theta &-r\sin\theta\\\sin\theta &r\cos\theta\end{pmatrix}\]
+So the determinant of \(J_f(r,\theta)\) is equal to \(r\) which is non-zero.  This means \(J_f(r,\theta)\) is invertible for any \((r,\theta)\in\mathbb{R}^2\setminus\{(0,0)\}\).  An invertible matrix is an isomorphism and clearly \(f\) is \(C^1\), so the Local Inversion Theorem can be applied.
+
+Let \(a=(r,\theta)\).  Then,
+\[J_f(r,\theta)=\begin{pmatrix}\cos\theta &-r\sin\theta\\\sin\theta &r\cos\theta\end{pmatrix}\]
+and the determinant,
+\[\det J_f(r,\theta)=r\cos^2\theta+r\sin^2\theta=r\]
+Inverting the Jacobian
+\[J_f(r,\theta)^{-1}=\begin{pmatrix}\cos\theta &\sin\theta\\-\frac{1}{r}\sin\theta &\frac{1}{r}\cos\theta\end{pmatrix}\]
+Finally, one local inversion of the function in \(H=\{(x,y)\in\mathbb{R}^2:x>0\}\),
+\[f^{-1}(x,y)=(\sqrt{x^2+y^2},\arctan(y/x))\]
+Clearly this is only one way to invert the function, specifically for \(-\pi/2<\theta<\pi/2\).  If you wanted to invert the function for some \(3\pi/2<\theta<5\pi/2\), then the inverse would change.  In this case it would be
+\[f^{-1}(x,y)=(\sqrt{x^2+y^2},2\pi+\arctan(y/x))\]
+
+\section{Results}
+
+The Local Inversion Theorem has some interesting extensions from it.
+
+The Global Inversion Theorem is one of these extensions:
+
+\textbf{Theorem (}\textit{Global Inversion}\textbf{):} Let \(E,F\) be Banach Spaces and \(U,V\) be non-empty open subsets of \(E\) and \(F\) respectfully.  Let \(f:U\to V\) is of class \(C^1\).  \(f:U\to f(U)\) is a diffeomorphism if and only if \(f\) is injective and \(df(a)\) is an isomorphism for any \(a\in U\).
+
+This extension come very naturally from the Local Inversion Theorem, as it is essentially applying the Local Inversion Theorem to every point in \(U\).
+
+A second extension is into \(C^k\) functions, where \(k>1\).  If \(f\) is of class \(C^k\), then the diffeomorphism provided by the Local Inversion Theorem is also \(C^k\).
+
+\newpage
+\printbibliography
+
+\end{document}
