@@ -15,5 +15,5 @@ To create a new challenge, run:
 To start all challenges, run:
 
 ```bash
-sudo docker-compose up
+sudo docker-compose up --build [-d]
 ```

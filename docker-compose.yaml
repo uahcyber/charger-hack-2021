@@ -78,3 +78,10 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "17424:1337"
+  re-babylock:
+    restart: always
+    build:
+      context: "./challenges/re/babylock"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "15727:1337"
