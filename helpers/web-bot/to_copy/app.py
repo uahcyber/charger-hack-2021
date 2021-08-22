@@ -34,7 +34,7 @@ def visit(name):
 @app.before_first_request
 def execute_me():
     challs = [
-        XSSChall("Blue's Billboard",f"{main_url}:38256"),
+        XSSChall("Blues Billboard",f"{main_url}:38256"),
     ]
     CL.extend(challs)
 
