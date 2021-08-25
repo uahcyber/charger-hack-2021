@@ -1,7 +1,7 @@
-UAH Week of Welcome CTF 2021
-============================
+Charger Hack CTF 2021
+=====================
 
-Scripts and resources for the UAH Cybersecurity Club's 2021 Week of Welcome CTF. 
+Scripts, resources, and challenges for the UAH Cybersecurity Club's 2021 Charger Hack CTF. 
 
 Usage
 -----
@@ -16,6 +16,12 @@ To start all challenges, run:
 
 ```bash
 sudo docker-compose up --build [-d]
+```
+
+To stop all challenge instances, run:
+
+```bash
+sudo docker-compose down
 ```
 
 Challenge Access
