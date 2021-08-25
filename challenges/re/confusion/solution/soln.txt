@@ -1,1 +1,3 @@
-disassemble binary, find XOR values, XOR with 0x25, get the flag 
+disassemble binary, find XOR values, XOR everything with key 0x25, get the flag 
+
+cyberchef is good for this, a python script would also work.

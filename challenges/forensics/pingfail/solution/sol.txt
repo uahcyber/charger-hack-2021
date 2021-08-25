@@ -1,1 +1,1 @@
-convert relative timestamps to ASCII, spell out flag. 
+convert relative timestamps in decimal to ASCII, spell out flag.

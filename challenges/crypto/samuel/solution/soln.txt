@@ -1,1 +1,1 @@
-decode morse code in cyberchef
+decode morse code in cyberchef, colons separate words. add curly braces after 'UAH'
